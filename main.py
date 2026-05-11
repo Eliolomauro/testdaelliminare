@@ -4,6 +4,12 @@ from pydantic import BaseModel
 from datetime import datetime, timedelta
 from typing import Optional
 import uuid
+import logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    force=True
+)
 
 app = FastAPI(title="Collify Mock API", version="1.0.0")
 security = HTTPBearer()
