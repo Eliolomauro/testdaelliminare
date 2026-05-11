@@ -4,4 +4,5 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY main.py .
 EXPOSE 3000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "3000"]
+ENV PYTHONUNBUFFERED=1
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "3000", "--log-level", "debug", "--access-log"]
